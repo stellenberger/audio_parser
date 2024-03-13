@@ -3,9 +3,10 @@
 module Models
   # A class to encapsulate wave file properties
   class WaveFile
-    attr_reader :audio_format, :channel_count, :sampling_rate, :bit_depth, :byte_rate, :bit_rate
+    attr_reader :file_name, :audio_format, :channel_count, :sampling_rate, :bit_depth, :byte_rate, :bit_rate
 
-    def initialize(audio_format, channel_count, sampling_rate, bit_depth, byte_rate)
+    def initialize(file_name, audio_format, channel_count, sampling_rate, bit_depth, byte_rate)
+      @file_name = file_name
       @audio_format = calculate_audio_format(audio_format)
       @channel_count = channel_count
       @sampling_rate = sampling_rate

@@ -50,11 +50,21 @@ Notes:
 
 Enjoy this Music Related Exercise :)
 
+## Solution
+
+Requirements;
+
+Ruby 3.0.0 is required to run this program.
+
 TODO:
 
 - [x] Git init, push to repo on GitHub
-- [ ] Setup ruby dependencies
-- [ ] Open file, extract metadata into object
+- [x] Setup ruby dependencies
+- [x] Open file, extract metadata into object
+- [ ] Generate an XML file
+- [ ] DI all dependencies
+- [ ] Write RSpec tests
+- [ ] Write custom errors
 
 User Documentation:
 
