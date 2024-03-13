@@ -3,6 +3,8 @@
 module Models
   # A class to encapsulate wave file properties
   class WaveFile
+    attr_reader :audio_format, :channel_count, :sampling_rate, :bit_depth, :byte_rate, :bit_rate
+
     def initialize(audio_format, channel_count, sampling_rate, bit_depth, byte_rate)
       @audio_format = calculate_audio_format(audio_format)
       @channel_count = channel_count
@@ -11,6 +13,8 @@ module Models
       @byte_rate = byte_rate
       @bit_rate = calculate_bit_rate(sampling_rate, bit_depth, channel_count)
     end
+
+    private
 
     def calculate_bit_rate(sampling_rate, bit_depth, channel_count)
       sampling_rate * bit_depth * channel_count
@@ -25,12 +29,14 @@ module Models
     end
 
     def to_s
-      puts "Audio Format: #{@audio_format}"
-      puts "Channel Count: #{@channel_count}"
-      puts "Sampling Rate: #{@sampling_rate}"
-      puts "Bit Depth: #{@bit_depth}"
-      puts "Byte Rate: #{@byte_rate}"
-      puts "Bit Rate: #{@bit_rate}"
+      [
+        "Audio Format: #{@audio_format}",
+        "Channel Count: #{@channel_count}",
+        "Sampling Rate: #{@sampling_rate}",
+        "Bit Depth: #{@bit_depth}",
+        "Byte Rate: #{@byte_rate}",
+        "Bit Rate: #{@bit_rate}"
+      ].join("\n")
     end
   end
 end

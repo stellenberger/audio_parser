@@ -5,9 +5,7 @@ require_relative 'models/wave_file'
 
 # A class to parse audio files
 class AudioParser
-  include WaveFile
-
-  def initialize(input_directory, wave_parser = Reader)
+  def initialize(input_directory, wave_parser = WaveFile::Reader)
     @input_directory = input_directory
     @wave_parser = wave_parser
   end
