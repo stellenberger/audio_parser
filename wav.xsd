@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="track">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="format" type="xs:string" />
+        <xs:element name="channel_count" type="xs:positiveInteger"/>
+        <xs:element name="sampling_rate" type="xs:positiveInteger"/>
+        <xs:element name="bit_depth" type="xs:positiveInteger"/>
+        <xs:element name="byte_rate" type="xs:positiveInteger" minOccurs="0"/>
+        <xs:element name="bit_rate" type="xs:positiveInteger"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
