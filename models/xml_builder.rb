@@ -11,9 +11,9 @@ class XMLBuilder
   end
 
   def build_xml_file
-    @content = Nokogiri::XML::Builder.new do |xml|
-      xml.wave_file do
-        xml.audio_format wave_file.audio_format
+    @content = Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
+      xml.track do
+        xml.format wave_file.audio_format
         xml.channel_count wave_file.channel_count
         xml.sampling_rate wave_file.sampling_rate
         xml.bit_depth wave_file.bit_depth
