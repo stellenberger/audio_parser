@@ -52,5 +52,14 @@ Enjoy this Music Related Exercise :)
 
 TODO:
 
-- [ ] Git init, push to repo on GitHub
+- [x] Git init, push to repo on GitHub
+- [ ] Setup ruby dependencies
 - [ ] Open file, extract metadata into object
+
+User Documentation:
+
+To use the audio parser, run the ruby file and pass in the input_files directory as an argument.
+
+```bash
+ruby audio_parser.rb ./input_files
+```

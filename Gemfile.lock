@@ -1,0 +1,13 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    wavefile (1.1.2)
+
+PLATFORMS
+  arm64-darwin-21
+
+DEPENDENCIES
+  wavefile (~> 1.1, >= 1.1.2)
+
+BUNDLED WITH
+   2.3.19
