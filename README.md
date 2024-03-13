@@ -61,7 +61,7 @@ TODO:
 - [x] Git init, push to repo on GitHub
 - [x] Setup ruby dependencies
 - [x] Open file, extract metadata into object
-- [ ] Generate an XML file
+- [x] Generate an XML file
 - [ ] DI all dependencies
 - [ ] Write RSpec tests
 - [ ] Write custom errors
