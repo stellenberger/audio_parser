@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'wavefile'
+require_relative 'models/wave_file'
 
 # A class to parse audio files
 class AudioParser
@@ -15,27 +16,14 @@ class AudioParser
     Dir.glob("#{@input_directory}/*.wav").each do |file|
       puts "Processing wave: #{file}"
       reader = @wave_parser.new(file)
-      audio_format = calculate_audio_format(reader.native_format.audio_format)
-      channel_count = reader.native_format.channels
-      sample_rate = reader.native_format.sample_rate
-      byte_rate = reader.native_format.byte_rate
-      bit_depth = reader.native_format.bits_per_sample
-      bit_rate = sample_rate * bit_depth * channel_count
 
-      puts "Channels: #{channel_count}"
-      puts "Sample rate: #{sample_rate}"
-      puts "Byte rate: #{byte_rate}"
-      puts "Bits per sample: #{bit_depth}"
-      puts "Bit rate: #{bit_rate}"
-      puts "Audio format: #{audio_format}"
-    end
-  end
-
-  def calculate_audio_format(audio_format)
-    if audio_format == '1'
-      :PCM
-    else
-      :Compressed
+      Models::WaveFile.new(
+        reader.native_format.audio_format,
+        reader.native_format.channels,
+        reader.native_format.sample_rate,
+        reader.native_format.bits_per_sample,
+        reader.native_format.byte_rate
+      )
     end
   end
 end
