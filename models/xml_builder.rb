@@ -32,7 +32,7 @@ class XMLBuilder
 
     ::FileUtils.mkdir_p(directory)
 
-    full_path = File.join(directory, "#{@wave_file.file_name.split('/').last.chomp('.wav')}.xml")
+    full_path = File.join(directory, "#{@wave_file.file_name_without_extension}.xml")
 
     File.open(full_path, 'w') do |file|
       file.write(@content)

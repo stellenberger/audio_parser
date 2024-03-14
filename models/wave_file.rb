@@ -15,6 +15,10 @@ module Models
       @bit_rate = calculate_bit_rate(sampling_rate, bit_depth, channel_count)
     end
 
+    def file_name_without_extension
+      @file_name.split('/').last.chomp('.wav')
+    end
+
     private
 
     def calculate_bit_rate(sampling_rate, bit_depth, channel_count)
@@ -27,17 +31,6 @@ module Models
       else
         :Compressed
       end
-    end
-
-    def to_s
-      [
-        "Audio Format: #{@audio_format}",
-        "Channel Count: #{@channel_count}",
-        "Sampling Rate: #{@sampling_rate}",
-        "Bit Depth: #{@bit_depth}",
-        "Byte Rate: #{@byte_rate}",
-        "Bit Rate: #{@bit_rate}"
-      ].join("\n")
     end
   end
 end
