@@ -1,36 +1,4 @@
-# frozen_string_literal: true
-
-require 'wavefile'
-require_relative 'models/wave_file'
-require_relative 'models/xml_builder'
-require 'nokogiri'
-
-# A class to parse audio files
-class AudioParser
-  def initialize(input_directory, wave_parser = WaveFile::Reader, xml_builder = XMLBuilder)
-    @input_directory = input_directory
-    @wave_parser = wave_parser
-    @xml_builder = xml_builder
-  end
-
-  def parse_audio_files
-    Dir.glob("#{@input_directory}/*.wav").each do |file|
-      puts "Processing wave: #{file}"
-      reader = @wave_parser.new(file)
-
-      wave_file = Models::WaveFile.new(
-        file,
-        reader.native_format.audio_format,
-        reader.native_format.channels,
-        reader.native_format.sample_rate,
-        reader.native_format.bits_per_sample,
-        reader.native_format.byte_rate
-      )
-
-      @xml_builder.new(wave_file).build_xml_file
-    end
-  end
-end
+require_relative 'models/parser'
 
 INPUT_DIRECTORY = ARGV[0]
 

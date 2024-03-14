@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Models
-  # A class to encapsulate wave file properties
+  # A class to encapsulate wave file properties (linter suggests adding this comment)
   class WaveFile
     attr_reader :file_name, :audio_format, :channel_count, :sampling_rate, :bit_depth, :byte_rate, :bit_rate
 
