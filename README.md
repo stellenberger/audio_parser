@@ -56,16 +56,6 @@ Requirements;
 
 Ruby 3.0.0 is required to run this program.
 
-TODO:
-
-- [x] Git init, push to repo on GitHub
-- [x] Setup ruby dependencies
-- [x] Open file, extract metadata into object
-- [x] Generate an XML file
-- [x] DI all dependencies
-- [x] Write RSpec tests
-- [ ] Write custom errors
-
 User Documentation:
 
 To use the audio parser, run the ruby file and pass in the input_files directory as an argument.
