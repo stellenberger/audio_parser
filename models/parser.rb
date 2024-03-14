@@ -8,7 +8,7 @@ require 'nokogiri'
 module Models
   # A class to parse audio files (linter suggested this comment)
   class Parser
-    def initialize(input_directory, wave_parser = WaveFile::Reader, xml_builder = XMLBuilder)
+    def initialize(input_directory, wave_parser = ::WaveFile::Reader, xml_builder = XMLBuilder)
       @input_directory = input_directory
       @wave_parser = wave_parser
       @xml_builder = xml_builder

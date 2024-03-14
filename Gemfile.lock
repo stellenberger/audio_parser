@@ -18,6 +18,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-support (3.13.1)
+    timecop (0.9.8)
     wavefile (1.1.2)
 
 PLATFORMS
@@ -26,6 +27,7 @@ PLATFORMS
 DEPENDENCIES
   nokogiri (= 1.16.0.rc1)
   rspec (~> 3.0)
+  timecop (~> 0.9)
   wavefile (~> 1.1, >= 1.1.2)
 
 BUNDLED WITH

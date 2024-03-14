@@ -1,4 +1,4 @@
-require_relative '../models/wave_file'
+require_relative '../../models/wave_file'
 
 RSpec.describe Models::WaveFile do
   describe 'initialization and attribute readers' do
