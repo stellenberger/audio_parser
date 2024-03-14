@@ -52,5 +52,29 @@ RSpec.describe Models::Parser do
         expect(File.exist?("output/#{timestamp}/#{file}")).to be false
       end
     end
+
+    it 'creates xml files with the correct content' do
+      audio_parser = described_class.new(input_directory)
+
+      timestamp = Timecop.freeze(Time.local(2020, 10, 5, 12, 0, 0)).to_i
+
+      audio_parser.parse_audio_files
+
+      schema_path = 'wav.xsd'
+
+      expected_output_files = ['sample-file-3.xml', 'sample-file-4.xml']
+
+      expected_output_files.each do |file|
+        xml_file_path = "output/#{timestamp}/#{file}"
+
+        schema = Nokogiri::XML::Schema(File.read(schema_path))
+
+        doc = Nokogiri::XML(File.read(xml_file_path))
+
+        errors = schema.validate(doc)
+
+        expect(errors.length).to eq 0
+      end
+    end
   end
 end
