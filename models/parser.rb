@@ -15,7 +15,11 @@ module Models
     end
 
     def parse_audio_files
+      no_of_files = 0
+
       Dir.glob("#{@input_directory}/*.wav").each do |file|
+        no_of_files += 1
+
         reader = @wave_parser.new(file)
 
         wave_file = Models::WaveFile.new(
@@ -29,6 +33,8 @@ module Models
 
         @xml_builder.new(wave_file).build_xml_file
       end
+
+      raise "No files with .wav extension found" if no_of_files == 0
     end
   end
 end

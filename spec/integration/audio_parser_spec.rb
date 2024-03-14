@@ -38,5 +38,19 @@ RSpec.describe Models::Parser do
         expect(File.exist?("output/#{timestamp}/#{file}")).to be true
       end
     end
+
+    it 'does not create xml files from non-wav files' do
+      audio_parser = described_class.new(input_directory)
+
+      timestamp = Timecop.freeze(Time.local(2020, 10, 5, 12, 0, 0)).to_i
+
+      audio_parser.parse_audio_files
+
+      non_expected_output_files = ['sample-file-1.xml', 'sample-file-2.xml', 'sample-file-5.xml']
+
+      non_expected_output_files.map do |file|
+        expect(File.exist?("output/#{timestamp}/#{file}")).to be false
+      end
+    end
   end
 end

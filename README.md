@@ -62,8 +62,8 @@ TODO:
 - [x] Setup ruby dependencies
 - [x] Open file, extract metadata into object
 - [x] Generate an XML file
-- [ ] DI all dependencies
-- [ ] Write RSpec tests
+- [x] DI all dependencies
+- [x] Write RSpec tests
 - [ ] Write custom errors
 
 User Documentation:
