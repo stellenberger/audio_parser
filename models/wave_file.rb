@@ -45,7 +45,7 @@ module Models
 
     def calculate_audio_format(format_chunk)
       audio_format = format_chunk[8..9].unpack1('v')
-      if audio_format == '1'
+      if audio_format == 1
         :PCM
       else
         :Compressed
@@ -67,6 +67,5 @@ module Models
     def get_bit_depth(format_chunk)
       format_chunk[21..22].unpack1('n')
     end
-
   end
 end

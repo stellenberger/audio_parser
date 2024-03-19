@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'wave_file'
+require_relative 'flac_file'
 require_relative 'xml_builder'
 require 'nokogiri'
 
@@ -15,12 +16,10 @@ module Models
     def parse_audio_files
       no_of_files = 0
 
-      Dir.glob("#{@input_directory}/*.wav").each do |file|
+      Dir.glob("#{@input_directory}/*").each do |file|
         no_of_files += 1
 
-        wave_file = Models::WaveFile.new(file)
-
-        @xml_builder.new(wave_file).build_xml_file
+        flac_file = Models::FlacFile.new(file)
       end
 
       raise "No files with .wav extension found" if no_of_files == 0

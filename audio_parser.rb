@@ -8,4 +8,5 @@ if INPUT_DIRECTORY.nil?
 end
 
 audio_parser = Models::Parser.new(INPUT_DIRECTORY)
+
 audio_parser.parse_audio_files
