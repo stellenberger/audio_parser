@@ -2,6 +2,8 @@ require 'pry'
 
 module Models
   class FlacFile
+    attr_writer :sample_rate
+
     def initialize(file)
       @file = file
       parse
@@ -14,13 +16,13 @@ module Models
 
         file.read(4)
 
-        streaminfo_chunk = file.read(27)
+        file.read(10)
 
-        sample_info = streaminfo_chunk[10..12]
+        sample_info = file.read(17).unpack("B20")
 
-        sample_rate_metadata = StringIO.new(sample_info.unpack('B*').first).map{|chunk| chunk[0..-5]}.first.to_i(2)
+        @sample_rate = sample_info.first.to_i(2)
 
-        puts "Sample rate: #{sample_rate_metadata}"
+        puts "Sample rate: #{@sample_rate}"
       end
     end
   end
